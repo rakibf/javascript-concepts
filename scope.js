@@ -4,7 +4,7 @@
 // console.log(window.x); // 23 => x variable is in window object
 
 
-function myFunc() {
+// function myFunc() {
     // var y = 10; // variable in function scope can't be accessed by parent scope
 
 
@@ -15,7 +15,7 @@ function myFunc() {
     // var x = 23;
     // child has access to the parent scopes
     // console.log(`${x} from myFunc`); // 23
-}
+// }
 
 // myFunc();
 
