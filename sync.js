@@ -47,5 +47,32 @@ const url3 = 'https://www.javascripttutorial.net/pic3.jpg';
 })
  */
 
+let hasMeeting = false;
+
+const meeting = new Promise(function(resolve, reject) {
+    if(!hasMeeting) {
+        const meetingDetails = {
+            name: 'Technical Meeting',
+            location: 'Google Meet',
+            time: '10:00 PM'
+        }
+        resolve(meetingDetails);
+    } else {
+        reject(new Error("meeting already has been scheduled"));
+    }
+});
+
+const addToCalendar = function(meetingDetails) {
+    const calendar = `${meetingDetails.name} is scheduled on ${meetingDetails.location} at ${meetingDetails.time}.`;
+    return Promise.resolve(calendar);
+}
 
 
+meeting
+    .then(addToCalendar)
+    .then((calendar) => {
+        console.log(calendar);
+    })
+    .catch(err => {
+        console.log(err.message);
+    })
